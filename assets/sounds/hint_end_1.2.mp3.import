@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/hint_end_1.2.mp3-f4f382dc54cc92be46dbe86cdbb0ccdb.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/hint_end_1.2.mp3"
+dest_files=[ "res://.import/hint_end_1.2.mp3-f4f382dc54cc92be46dbe86cdbb0ccdb.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

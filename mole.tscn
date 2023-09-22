@@ -1,0 +1,547 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://assets/images/updated/game3_gopher_right.png" type="Texture" id=1]
+[ext_resource path="res://assets/images/game3_sand_back.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/game3_sand_front.png" type="Texture" id=3]
+[ext_resource path="res://mole.gd" type="Script" id=4]
+[ext_resource path="res://assets/images/updated/game3_gopher_wrong.png" type="Texture" id=5]
+[ext_resource path="res://assets/images/game3_bullet_hole.png" type="Texture" id=6]
+[ext_resource path="res://assets/images/game3_circle.png" type="Texture" id=7]
+[ext_resource path="res://assets/answers/correct/game3_correct_ans1.png" type="Texture" id=8]
+[ext_resource path="res://assets/images/updated/game3_cross.png" type="Texture" id=9]
+[ext_resource path="res://assets/images/updated/game3_tick.png" type="Texture" id=10]
+[ext_resource path="res://assets/sounds/answer_wrong.mp3" type="AudioStream" id=11]
+[ext_resource path="res://assets/images/updated/game3_gopher.png" type="Texture" id=12]
+[ext_resource path="res://assets/sounds/answer_correct.mp3" type="AudioStream" id=13]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 141.5, 65.5 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 186, 216.625 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 190.5, 182.65 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 183.5, 160.3 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 176.5, 123.2 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 173.5, 98.1 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "Hide"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Mole:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 267, 170 ), Vector2( 271, 450 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Mole/Area2D/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2, -31 ), Vector2( 2, -30 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Mole/Area2D/CollisionShape2D:shape")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ SubResource( 1 ), SubResource( 7 ), SubResource( 6 ), SubResource( 5 ), SubResource( 4 ), SubResource( 3 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Mole/Area2D/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Mole:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 12 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Answer:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 267, 235 ), Vector2( 267, 350 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Answer:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Answer:region_rect")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Rect2( 4.86, 0, 215, 230 ), Rect2( 4.86, 0, 215, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Mole:region_rect")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Rect2( 0, 0, 341.034, 420 ), Rect2( 0, 0, 341.034, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Peep"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Mole:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 271, 450 ), Vector2( 267, 170 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Mole/Area2D/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2, -30 ), Vector2( 2, -31 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Mole/Area2D/CollisionShape2D:shape")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Mole/Area2D/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Answer:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.6, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 270, 330 ), Vector2( 267, 240 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Answer:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Answer:region_rect")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.6, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Rect2( 4.86, 0, 215, 30 ), Rect2( 4.86, 0, 215, 250 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Mole:texture")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 12 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Mole:region_rect")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Rect2( 0, 0, 340.439, 0 ), Rect2( 0, 0, 340.439, 420 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "Whack_Success"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Mole:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 267, 170 ), Vector2( 267, 450 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Mole/Area2D/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2, -31 ), Vector2( 2, -30 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Mole/Area2D/CollisionShape2D:shape")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ SubResource( 1 ), SubResource( 7 ), SubResource( 6 ), SubResource( 5 ), SubResource( 4 ), SubResource( 3 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Mole/Area2D/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Mole:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Answer:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 267, 240 ), Vector2( 267, 350 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Answer:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Answer:region_rect")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Rect2( 4.86, 0, 215, 220 ), Rect2( 4.86, 0, 215, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Mole:region_rect")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Rect2( 0, 0, 341.034, 420 ), Rect2( 0, 0, 341.034, 0 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "Whack_Wrong"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Mole:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 267, 170 ), Vector2( 267, 450 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Mole/Area2D/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2, -31 ), Vector2( 2, -30 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Mole/Area2D/CollisionShape2D:shape")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ SubResource( 1 ), SubResource( 7 ), SubResource( 6 ), SubResource( 5 ), SubResource( 4 ), SubResource( 3 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Mole/Area2D/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Mole:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Answer:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 267, 240 ), Vector2( 267, 350 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Answer:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Answer:region_rect")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Rect2( 4.86, 0, 215, 220 ), Rect2( 4.86, 0, 215, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Mole:region_rect")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Rect2( 0, 0, 340.69, 420 ), Rect2( 0, 0, 340.69, 0 ) ]
+}
+
+[node name="Mole" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="HoleBack" type="Sprite" parent="."]
+position = Vector2( 264, 311 )
+texture = ExtResource( 2 )
+
+[node name="WrongAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+
+[node name="CorrectAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+
+[node name="Mole" type="Sprite" parent="."]
+position = Vector2( 271, 450 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 340.439, 0 )
+
+[node name="Area2D" type="Area2D" parent="Mole"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mole/Area2D"]
+position = Vector2( 2, -30 )
+shape = SubResource( 3 )
+disabled = true
+
+[node name="HoleFront" type="Sprite" parent="."]
+position = Vector2( 262, 423 )
+texture = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Hide = SubResource( 8 )
+anims/Peep = SubResource( 2 )
+anims/Whack_Success = SubResource( 9 )
+anims/Whack_Wrong = SubResource( 10 )
+
+[node name="Answer" type="Sprite" parent="."]
+visible = false
+position = Vector2( 270, 330 )
+scale = Vector2( 1.02791, 1.02791 )
+texture = ExtResource( 8 )
+region_enabled = true
+region_rect = Rect2( 4.86, 0, 215, 30 )
+
+[node name="CorrectAnswer" type="Sprite" parent="."]
+visible = false
+
+[node name="Circle" type="Sprite" parent="CorrectAnswer"]
+visible = false
+position = Vector2( 270, 259 )
+texture = ExtResource( 7 )
+
+[node name="bullet" type="Sprite" parent="CorrectAnswer"]
+visible = false
+position = Vector2( 267, 241 )
+texture = ExtResource( 6 )
+
+[node name="Tick" type="Sprite" parent="CorrectAnswer"]
+position = Vector2( 270, 257 )
+texture = ExtResource( 10 )
+
+[node name="WrongAnswer" type="Sprite" parent="."]
+visible = false
+
+[node name="Cross" type="Sprite" parent="WrongAnswer"]
+position = Vector2( 270, 259 )
+texture = ExtResource( 9 )
+
+[connection signal="input_event" from="Mole/Area2D" to="." method="_on_Area2D_input_event"]

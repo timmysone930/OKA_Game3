@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/hint_mission2.mp3-4e157981b73964008089f5d69851de7c.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/hint_mission2.mp3"
+dest_files=[ "res://.import/hint_mission2.mp3-4e157981b73964008089f5d69851de7c.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
