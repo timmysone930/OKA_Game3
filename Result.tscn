@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/images/updated/game3_bg_end.png" type="Texture" id=1]
 [ext_resource path="res://assets/images/game3_board_end_lv1.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://assets/buttons/public_nextlv_green.png" type="Texture" id=10]
 [ext_resource path="res://assets/buttons/public_home_green.png" type="Texture" id=11]
 [ext_resource path="res://assets/sounds/hint_end_1.2.mp3" type="AudioStream" id=12]
+[ext_resource path="res://assets/videos/lv1.ogv" type="VideoStream" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
@@ -190,5 +191,11 @@ texture = ExtResource( 4 )
 [node name="ResultAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
 
+[node name="ResultVideoPlayer" type="VideoPlayer" parent="."]
+margin_right = 1936.0
+margin_bottom = 1448.0
+stream = ExtResource( 13 )
+
 [connection signal="pressed" from="ButtonContainer/HomeButton" to="." method="_on_HomeButton_pressed"]
 [connection signal="pressed" from="ButtonContainer/NextButton" to="." method="_on_NextButton_pressed"]
+[connection signal="finished" from="ResultVideoPlayer" to="." method="_on_ResultVideoPlayer_finished"]

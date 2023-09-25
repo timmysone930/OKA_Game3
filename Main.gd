@@ -45,6 +45,7 @@ func control_music():
 		setSoundMute($GameSceneContainer/GameStartContainer/GameRuleVO, false)
 		setSoundMute($ResultContainer/Result/ResultAudio, false)
 		setSoundMute($ButtonContainer/ButtonAudio, false)
+		setSoundMute($ResultContainer/Result/ResultVideoPlayer, false)
 	else:
 		$BGMPlayer.stop()
 		$ButtonContainer/BGM/BGMButton.texture_normal = load("res://assets/buttons/public_music_off.png")
@@ -53,6 +54,7 @@ func control_music():
 		setSoundMute($GameSceneContainer/GameStartContainer/GameRuleVO, true)
 		setSoundMute($ResultContainer/Result/ResultAudio, true)
 		setSoundMute($ButtonContainer/ButtonAudio, true)
+		setSoundMute($ResultContainer/Result/ResultVideoPlayer, true)
 
 func setSoundMute(path, shouldMute):
 	if shouldMute:

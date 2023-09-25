@@ -34,7 +34,8 @@ var game_obj = {
 		"next_button_press": "res://assets/buttons/public_nextlv_green.png",
 		"game_time": 60,
 		"holes_number": 3,
-		"game_end_audio": "res://assets/sounds/hint_end_1.2.mp3"
+		"game_end_audio": "res://assets/sounds/hint_end_1.2.mp3",
+		"result_video": "res://assets/videos/lv1.ogv"
 	},
 	2: {
 		"game_rule": "res://assets/images/updated/game3_count_lv2.png",
@@ -55,7 +56,8 @@ var game_obj = {
 		"next_button_press": "res://assets/buttons/public_nextlv_green.png",
 		"game_time": 90,
 		"holes_number": 5,
-		"game_end_audio": "res://assets/sounds/hint_end_2.2.mp3"
+		"game_end_audio": "res://assets/sounds/hint_end_2.2.mp3",
+		"result_video": "res://assets/videos/lv2.ogv"
 	},
 	3: {
 		"game_rule": "res://assets/images/updated/game3_count_lv3.png",
@@ -76,7 +78,8 @@ var game_obj = {
 		"next_button_press": "res://assets/buttons/public_again_green.png",
 		"game_time": 120,
 		"holes_number": 5,
-		"game_end_audio": "res://assets/sounds/hint_end_3.2.mp3"
+		"game_end_audio": "res://assets/sounds/hint_end_3.2.mp3",
+		"result_video": "res://assets/videos/lv3.ogv"
 	}
 }
 

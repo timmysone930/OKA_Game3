@@ -9,6 +9,31 @@ func _ready():
 
 func set_stage():		
 	if Globals.is_pass:
+		$ResultVideoPlayer.show()
+		$ResultVideoPlayer.stream = load(Globals.game_obj[Globals.game_level].result_video)
+		$ResultVideoPlayer.play()
+	else:
+		switchResult()
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+
+func _on_NextButton_pressed():
+	if Globals.game_level < 3 :
+		Globals.game_level += 1
+	elif Globals.game_level == 3 or Globals.game_level == 0:
+		Globals.game_level = 1
+	emit_signal("Next_level")
+
+
+func _on_HomeButton_pressed():
+	Globals.game_level = 1
+	emit_signal("Reset_Level")
+
+func switchResult():
+	$ResultVideoPlayer.hide()
+	if Globals.is_pass:
 		$ResultBoard.texture = load(Globals.game_obj[Globals.game_level].game_board)
 		$Character.texture = load(Globals.game_obj[Globals.game_level].character)
 		$ButtonContainer/NextButton.texture_normal = load(Globals.game_obj[Globals.game_level].next_button)
@@ -32,20 +57,5 @@ func set_stage():
 		$FailContainer/ScoreLabel.text = str(Globals.game_score)
 	$ResultAudio.play()
 
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-func _on_NextButton_pressed():
-	if Globals.game_level < 3 :
-		Globals.game_level += 1
-	elif Globals.game_level == 3 or Globals.game_level == 0:
-		Globals.game_level = 1
-	emit_signal("Next_level")
-
-
-func _on_HomeButton_pressed():
-	Globals.game_level = 1
-	emit_signal("Reset_Level")
+func _on_ResultVideoPlayer_finished():
+	switchResult()
