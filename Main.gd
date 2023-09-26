@@ -10,6 +10,7 @@ onready var start_button_animation = $TitleContainer/StartButton/StartButton/Sta
 func _ready():
 	if Globals.is_allow_sound:
 		$TitleVO.play()
+	control_music(Globals.is_allow_sound)
 	start_button_animation.play("Flash")
 	$GameSceneContainer/GameStartContainer/GameStartAnimation.connect("animation_finished", self, "on_animation_finished")
 	$LeaveContainer/LeaveBoard/AnimationPlayer.connect("animation_finished", self, "on_animation_finished")
@@ -34,8 +35,12 @@ func _on_BGMButton_button_up():
 func _on_BGMButton_button_down():
 	bgm_animation.play("onClick")
 
-func control_music():
-	Globals.is_allow_sound = !Globals.is_allow_sound
+func control_music(isAllow = null):
+	if isAllow == null:
+		Globals.is_allow_sound = !Globals.is_allow_sound
+	else:
+		Globals.is_allow_sound = isAllow
+
 	var is_playing = $BGMPlayer.is_playing()
 	if Globals.is_allow_sound:
 		$BGMPlayer.play()
@@ -97,7 +102,7 @@ func on_animation_finished(anim_name):
 		$LeaveContainer.hide()
 		get_tree().paused = false
 		$ResultContainer/Result/ResultVideoPlayer.paused = false
-		
+
 func _on_GameRuleVO_finished():
 	if !isReset:	
 		$GameSceneContainer/GameStartContainer.hide()
