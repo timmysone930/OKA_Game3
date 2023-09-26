@@ -66,6 +66,7 @@ func setSoundMute(path, shouldMute):
 func _on_ExitButton_button_up():
 	$ButtonContainer/Exit/ExitButton/ExitAnimation.play("onClickOver")
 	$LeaveContainer.show()
+	$ResultContainer/Result/ResultVideoPlayer.paused = true
 	get_tree().paused = true
 	$LeaveContainer/LeaveBoard/AnimationPlayer.play("Slide_down")
 
@@ -95,6 +96,7 @@ func on_animation_finished(anim_name):
 	elif anim_name == "Slide_up":
 		$LeaveContainer.hide()
 		get_tree().paused = false
+		$ResultContainer/Result/ResultVideoPlayer.paused = false
 		
 func _on_GameRuleVO_finished():
 	if !isReset:	

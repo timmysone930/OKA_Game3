@@ -192,6 +192,7 @@ texture = ExtResource( 4 )
 stream = ExtResource( 12 )
 
 [node name="ResultVideoPlayer" type="VideoPlayer" parent="."]
+visible = false
 margin_right = 1936.0
 margin_bottom = 1448.0
 stream = ExtResource( 13 )
