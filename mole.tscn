@@ -14,9 +14,6 @@
 [ext_resource path="res://assets/images/updated/game3_gopher.png" type="Texture" id=12]
 [ext_resource path="res://assets/sounds/answer_correct.mp3" type="AudioStream" id=13]
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 141.5, 65.5 )
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 186, 216.625 )
 
@@ -31,6 +28,9 @@ extents = Vector2( 176.5, 123.2 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 173.5, 98.1 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 141.5, 65.5 )
 
 [sub_resource type="Animation" id=8]
 resource_name = "Hide"
@@ -188,7 +188,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -490,17 +490,16 @@ stream = ExtResource( 11 )
 stream = ExtResource( 13 )
 
 [node name="Mole" type="Sprite" parent="."]
-position = Vector2( 271, 450 )
+position = Vector2( 267, 170 )
 texture = ExtResource( 12 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 340.439, 0 )
+region_rect = Rect2( 0, 0, 340.439, 420 )
 
 [node name="Area2D" type="Area2D" parent="Mole"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mole/Area2D"]
-position = Vector2( 2, -30 )
-shape = SubResource( 3 )
-disabled = true
+position = Vector2( 2, -31 )
+shape = SubResource( 1 )
 
 [node name="HoleFront" type="Sprite" parent="."]
 position = Vector2( 262, 423 )
@@ -513,12 +512,11 @@ anims/Whack_Success = SubResource( 9 )
 anims/Whack_Wrong = SubResource( 10 )
 
 [node name="Answer" type="Sprite" parent="."]
-visible = false
-position = Vector2( 270, 330 )
+position = Vector2( 267, 240 )
 scale = Vector2( 1.02791, 1.02791 )
 texture = ExtResource( 8 )
 region_enabled = true
-region_rect = Rect2( 4.86, 0, 215, 30 )
+region_rect = Rect2( 4.86, 0, 215, 250 )
 
 [node name="CorrectAnswer" type="Sprite" parent="."]
 visible = false
