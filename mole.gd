@@ -3,7 +3,7 @@ extends Node2D
 var prev_animation = ""
 var is_whacked = false
 var wrong_whack_texture = "res://assets/images/updated/game3_gopher_wrong.png"
-var right_whack_texture = "res://assets/images/updated/game3_gopher_right.png"
+var right_whack_texture = "res://assets/images/updated/game3_gopher_right_new.png"
 
 var is_correct
 var is_game_ended = false
@@ -60,7 +60,8 @@ func whack(is_correct):
 		if Globals.is_allow_sound:
 			$CorrectAudio.play()
 		get_node("Mole").set_texture(load(right_whack_texture))
-		get_node("Mole").position.y = 150
+		get_node("Mole").position.y = 40
+		get_node("Mole").region_rect = Rect2(0, 0, 347, 680)
 		$CorrectAnswer.visible = true
 	else:
 		emit_signal("Whacked_Wrong")

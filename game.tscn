@@ -122,9 +122,6 @@ visible = false
 [node name="Mole" parent="MolesContainer" instance=ExtResource( 3 )]
 position = Vector2( 376, 288 )
 
-[node name="Mole2" parent="MolesContainer" instance=ExtResource( 3 )]
-position = Vector2( 948, 916 )
-
 [node name="Mole3" parent="MolesContainer" instance=ExtResource( 3 )]
 position = Vector2( 1416, 256 )
 
@@ -133,6 +130,9 @@ position = Vector2( 888, 312 )
 
 [node name="Mole5" parent="MolesContainer" instance=ExtResource( 3 )]
 position = Vector2( 352, 872 )
+
+[node name="Mole2" parent="MolesContainer" instance=ExtResource( 3 )]
+position = Vector2( 948, 916 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
@@ -143,14 +143,14 @@ one_shot = true
 
 [node name="MolesContainer_lv1" type="Node2D" parent="."]
 
-[node name="Mole2" parent="MolesContainer_lv1" instance=ExtResource( 3 )]
-position = Vector2( 948, 916 )
-
 [node name="Mole4" parent="MolesContainer_lv1" instance=ExtResource( 3 )]
 position = Vector2( 888, 312 )
 
 [node name="Mole5" parent="MolesContainer_lv1" instance=ExtResource( 3 )]
 position = Vector2( 352, 864 )
+
+[node name="Mole2" parent="MolesContainer_lv1" instance=ExtResource( 3 )]
+position = Vector2( 948, 916 )
 
 [node name="ScoreContainer" type="Node2D" parent="."]
 
