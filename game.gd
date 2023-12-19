@@ -144,11 +144,18 @@ func random_pick_answer():
 
 	var remain_hole_length = Globals.game_obj[Globals.game_level].holes_number - arr.size()
 	for i in range (remain_hole_length):
-		var select_weight = random_weight_selector()
-		if select_weight == 0 and !correct_arr.empty():
+		if !correct_arr.empty() && !wrong_arr.empty():
+			var select_weight = random_weight_selector()
+			if select_weight == 0:
+				var ans = correct_arr.pop_front()
+				arr.append(ans)
+			elif select_weight == 1:
+				var ans = wrong_arr.pop_front()
+				arr.append(ans)
+		elif !correct_arr.empty(): 
 			var ans = correct_arr.pop_front()
 			arr.append(ans)
-		elif select_weight == 1 and !wrong_arr.empty():
+		elif !wrong_arr.empty():
 			var ans = wrong_arr.pop_front()
 			arr.append(ans)
 	arr.shuffle()
