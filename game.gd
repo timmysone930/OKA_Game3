@@ -18,14 +18,11 @@ class ImageAnswerEntry:
 	var is_correct: bool
 
 var image_answers = [] #TODO: REMOVE
-var correct_arr = []
-var wrong_arr = []
 var is_mole_peeping = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-	generate_answers()
 	
 	if Globals.game_level == 1:
 		$MolesContainer.visible = false
@@ -59,7 +56,7 @@ func mole_action():
 		
 	if is_mole_peeping:
 		return
-		
+	
 	var answer_arr = random_pick_answer()
 	for i in range(mole_container.get_child_count()):
 		var mole = mole_container.get_child(i)
@@ -97,7 +94,9 @@ func end_game():
 	emit_signal("is_ended")
 	
 
-func get_image_files_in_folders(folder_path, is_correct, arr):
+func get_image_files_in_folders(folder_path, is_correct):
+	var arr = []
+	
 	var dir = Directory.new()
 	dir.open(folder_path)
 	if dir.open(folder_path) == OK:
@@ -113,10 +112,8 @@ func get_image_files_in_folders(folder_path, is_correct, arr):
 				arr.append(entry)
 			file = dir.get_next()
 		dir.list_dir_end()
-
-func generate_answers():
-	var correct_images = get_image_files_in_folders(correct_answer_path, true, correct_arr)
-	var wrong_images = get_image_files_in_folders(wrong_answer_path, false, wrong_arr)
+	
+	return arr
 
 func random_weight_selector():
 	var correct_weight = 0.55
@@ -129,20 +126,31 @@ func random_weight_selector():
 		return 1	
 
 func random_pick_answer():
+	var correct_arr = get_image_files_in_folders(correct_answer_path, true)
+	var wrong_arr = get_image_files_in_folders(wrong_answer_path, false)
+	
 	var arr = []
 	
-	var correct_ans = correct_arr[randi() % correct_arr.size()]
-	arr.append(correct_ans)
-	var wrong_ans = wrong_arr[randi() % wrong_arr.size()]
-	arr.append(wrong_ans)
+	# Shuffle and slice arrays
+	correct_arr.shuffle()  
+	wrong_arr.shuffle()
 	
+	# pop out the selected items
+	var correct_ans = correct_arr.pop_front()
+	arr.append(correct_ans)
+	
+	var wrong_ans = wrong_arr.pop_front()
+	arr.append(wrong_ans)
+
 	var remain_hole_length = Globals.game_obj[Globals.game_level].holes_number - arr.size()
 	for i in range (remain_hole_length):
 		var select_weight = random_weight_selector()
-		if select_weight == 0:
-			arr.append(correct_arr[randi() % correct_arr.size()])
-		else:
-			arr.append(wrong_arr[randi() % wrong_arr.size()])
+		if select_weight == 0 and !correct_arr.empty():
+			var ans = correct_arr.pop_front()
+			arr.append(ans)
+		elif select_weight == 1 and !wrong_arr.empty():
+			var ans = wrong_arr.pop_front()
+			arr.append(ans)
 	arr.shuffle()
 	return arr
 	#if picked_correct_count < 1:
