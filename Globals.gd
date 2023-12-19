@@ -13,7 +13,7 @@ var game_obj = {
 		"character": "res://assets/images/game3_student_lose.png",
 		"next_button": "res://assets/buttons/public_redo_yellow.png",
 		"next_button_press": "res://assets/buttons/public_redo_green.png",
-		"game_end_audio": "res://assets/sounds/hint_fail.mp3"
+		"game_end_audio": "res://assets/sounds/hint_fail.mp3",
 	},
 	1: {
 		"game_rule": "res://assets/images/updated/game3_count_lv1.png",
@@ -35,7 +35,8 @@ var game_obj = {
 		"game_time": 60,
 		"holes_number": 3,
 		"game_end_audio": "res://assets/sounds/hint_end_1.2.mp3",
-		"result_video": "res://assets/videos/lv1.ogv"
+		"result_video": "res://assets/videos/lv1.ogv",
+		"correct_path": "res://assets/answers/correct/lv1/"
 	},
 	2: {
 		"game_rule": "res://assets/images/updated/game3_count_lv2.png",
@@ -57,7 +58,8 @@ var game_obj = {
 		"game_time": 90,
 		"holes_number": 5,
 		"game_end_audio": "res://assets/sounds/hint_end_2.2.mp3",
-		"result_video": "res://assets/videos/lv2.ogv"
+		"result_video": "res://assets/videos/lv2.ogv",
+		"correct_path": "res://assets/answers/correct/lv2/"
 	},
 	3: {
 		"game_rule": "res://assets/images/updated/game3_count_lv3.png",
@@ -79,7 +81,8 @@ var game_obj = {
 		"game_time": 120,
 		"holes_number": 5,
 		"game_end_audio": "res://assets/sounds/hint_end_3.2.mp3",
-		"result_video": "res://assets/videos/lv3.ogv"
+		"result_video": "res://assets/videos/lv3.ogv",
+		"correct_path": "res://assets/answers/correct/lv3/"
 	}
 }
 

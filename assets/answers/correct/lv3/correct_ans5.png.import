@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/game3_correct_ans1.png-9455152f4f96c7429a0a3f3fbd92a894.stex"
+path="res://.import/correct_ans5.png-89d023d02515afa370ea8175d8793bdb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/answers/correct/game3_correct_ans1.png"
-dest_files=[ "res://.import/game3_correct_ans1.png-9455152f4f96c7429a0a3f3fbd92a894.stex" ]
+source_file="res://assets/answers/correct/lv3/correct_ans5.png"
+dest_files=[ "res://.import/correct_ans5.png-89d023d02515afa370ea8175d8793bdb.stex" ]
 
 [params]
 

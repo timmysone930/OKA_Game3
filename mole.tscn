@@ -7,7 +7,7 @@
 [ext_resource path="res://assets/images/updated/game3_gopher_wrong.png" type="Texture" id=5]
 [ext_resource path="res://assets/images/game3_bullet_hole.png" type="Texture" id=6]
 [ext_resource path="res://assets/images/game3_circle.png" type="Texture" id=7]
-[ext_resource path="res://assets/answers/correct/game3_correct_ans1.png" type="Texture" id=8]
+[ext_resource path="res://assets/answers/correct/lv1/correct_ans2.png" type="Texture" id=8]
 [ext_resource path="res://assets/images/updated/game3_cross.png" type="Texture" id=9]
 [ext_resource path="res://assets/images/updated/game3_tick.png" type="Texture" id=10]
 [ext_resource path="res://assets/sounds/answer_wrong.mp3" type="AudioStream" id=11]
@@ -602,10 +602,10 @@ stream = ExtResource( 11 )
 stream = ExtResource( 13 )
 
 [node name="Mole" type="Sprite" parent="."]
-position = Vector2( 271, 450 )
+position = Vector2( 267, 170 )
 texture = ExtResource( 12 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 340.439, 0 )
+region_rect = Rect2( 0, 0, 341.034, 420 )
 
 [node name="Area2D" type="Area2D" parent="Mole"]
 
@@ -626,12 +626,11 @@ anims/Whack_Success_NEW = SubResource( 11 )
 anims/Whack_Wrong = SubResource( 10 )
 
 [node name="Answer" type="Sprite" parent="."]
-visible = false
-position = Vector2( 267, 240 )
+position = Vector2( 267, 235 )
 scale = Vector2( 1.02791, 1.02791 )
 texture = ExtResource( 8 )
 region_enabled = true
-region_rect = Rect2( 4.86, 0, 215, 220 )
+region_rect = Rect2( 4.86, 0, 215, 230 )
 
 [node name="CorrectAnswer" type="Sprite" parent="."]
 visible = false

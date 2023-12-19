@@ -8,7 +8,7 @@ var picked_correct_count = 0
 var picked_wrong_count = 0
 
 var wrong_answer_path = "res://assets/answers/wrong/"
-var correct_answer_path = "res://assets/answers/correct/"
+var correct_answer_path = Globals.game_obj[Globals.game_level].correct_path
 var last_answer_index
 var mole_container
 signal is_ended
